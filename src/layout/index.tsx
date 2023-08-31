@@ -13,7 +13,7 @@ const Layout = ({ children }: LayoutProps) => {
         backgroundColor: "#10141F",
         display: "flex",
         flexDirection: {
-          base: "column",
+          xs: "column",
           lg: "row",
         },
         color: "white",
