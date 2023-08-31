@@ -1,11 +1,9 @@
 {
-    "project_name": "mightymeld-materialui-sample",
-    "include": ["src"],
-    "web_server_url": "http://localhost:5173",
-    "run": "yarn dev",
-    "main_branch": "main",
-    "prefab_dir": "src/prefabs",
-    "tailwind": true,
-    "run_prettier": true
-  }
-  
+  "project_name": "mightymeld-materialui-sample",
+  "include": ["src"],
+  "web_server_url": "http://localhost:5173",
+  "run": "yarn dev",
+  "main_branch": "main",
+  "prefab_dir": "src/prefabs",
+  "run_prettier": true
+}
