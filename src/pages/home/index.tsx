@@ -59,7 +59,7 @@ const Home = () => {
         {search === "" ? (
           <Box width="100%">
             <Box width="100%">
-              <Typography variant="h5" component="h1" my={2} fontWeight={300}>
+            <Typography variant="h5" component="h1" my={6} fontWeight={400}>
                 Trending
               </Typography>
               <MovieTrendList trendingList={trendingList} />
