@@ -88,13 +88,7 @@ export const _Autocomplete = () => (
     freeSolo
     options={["One", "Two", "Three"]}
     renderInput={(params) => (
-      <TextField
-        {...params}
-        label="enter text"
-        margin="normal"
-        variant="outlined"
-        sx={{ backgroundColor: "white" }}
-      />
+      <TextField {...params} label="enter text" margin="normal" variant="outlined" sx={{ backgroundColor: "white" }} />
     )}
   />
 );
@@ -154,9 +148,7 @@ export const _TextField = () => {
   return <TextField label="Text Field" />;
 };
 
-export const _ToggleButton = () => (
-  <ToggleButton value={1}>Button</ToggleButton>
-);
+export const _ToggleButton = () => <ToggleButton value={1}>Button</ToggleButton>;
 
 export const _ToggleButtonGroup = () => (
   <ToggleButtonGroup color="primary" exclusive>
@@ -170,16 +162,11 @@ export const _ToggleButtonGroup = () => (
 
 export const _Avatar = () => <Avatar>Aa</Avatar>;
 
-export const _Avatar_image = () => (
-  <Avatar alt="Jay Doe" src="https://randomuser.me/api/portraits/lego/5.jpg" />
-);
+export const _Avatar_image = () => <Avatar alt="Jay Doe" src="https://randomuser.me/api/portraits/lego/5.jpg" />;
 
 export const _Badge = () => (
   <Badge color="secondary" badgeContent={1}>
-    <Box
-      component="span"
-      sx={{ width: 30, height: 30, background: "gray" }}
-    ></Box>
+    <Box component="span" sx={{ width: 30, height: 30, background: "gray" }}></Box>
   </Badge>
 );
 
@@ -202,15 +189,9 @@ export const _Tooltip = () => (
 );
 
 export const _Typography = () => <Typography>Text</Typography>;
-export const _Typography_heading = () => (
-  <Typography variant="h1">Heading</Typography>
-);
-export const _Typography_subtitle = () => (
-  <Typography variant="subtitle1">Subtitle</Typography>
-);
-export const _Typography_body = () => (
-  <Typography variant="body1">Body</Typography>
-);
+export const _Typography_heading = () => <Typography variant="h1">Heading</Typography>;
+export const _Typography_subtitle = () => <Typography variant="subtitle1">Subtitle</Typography>;
+export const _Typography_body = () => <Typography variant="body1">Body</Typography>;
 
 /* Feedback
      -------- */
@@ -227,16 +208,10 @@ export const _Alert_with_title = () => (
 export const _Backdrop = () => <Backdrop open />;
 
 export const _Dialog = () => (
-  <Dialog
-    open={false}
-    aria-labelledby="alert-dialog-title"
-    aria-describedby="alert-dialog-description"
-  >
+  <Dialog open={false} aria-labelledby="alert-dialog-title" aria-describedby="alert-dialog-description">
     <DialogTitle id="alert-dialog-title">Title</DialogTitle>
     <DialogContent>
-      <DialogContentText id="alert-dialog-description">
-        Description
-      </DialogContentText>
+      <DialogContentText id="alert-dialog-description">Description</DialogContentText>
     </DialogContent>
     <DialogActions>
       <Button>Disagree</Button>

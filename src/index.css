@@ -1,8 +1,19 @@
-/* body {
-  background-color: #161d2f;
-} */
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #161d2f;
+  border-radius: 2px;
 }

@@ -1,13 +1,5 @@
 import { useContext } from "react";
-import {
-  Card,
-  CardContent,
-  Stack,
-  Typography,
-  Box,
-  Grid,
-  IconButton,
-} from "@mui/material";
+import { Card, CardContent, Stack, Typography, Box, Grid } from "@mui/material";
 import { MovieContext } from "../../context/movies-context";
 import { MovieDataType } from "../../assets/data";
 import BookmarkIcon from "../icons/bookmark-icon";
@@ -22,20 +14,12 @@ interface MoviecardProps {
 const MovieTrendCard = ({ movie }: MoviecardProps) => {
   const { dispatch } = useContext(MovieContext);
 
-  const handleAddBookmark = (id: string) => {
-    dispatch({ type: "ADD BOOKMARK", id });
-  };
-
-  const handleRemoveBookmark = (id: string) => {
-    dispatch({ type: "REMOVE BOOKMARK", id });
+  const handleToggleBookmark = (id: string) => {
+    dispatch({ type: "TOOGLE BOOKMARK", id });
   };
 
   return (
-    <Card
-      key={movie.id}
-      elevation={0}
-      style={{ backgroundColor: "transparent" }}
-    >
+    <Card key={movie.id} elevation={0} style={{ backgroundColor: "transparent" }}>
       <CardContent
         style={{
           padding: 0,
@@ -44,36 +28,12 @@ const MovieTrendCard = ({ movie }: MoviecardProps) => {
           display: "flex",
         }}
       >
-        <img
-          src={movie.thumbnail.regular.large}
-          alt=""
-          style={{ width: "300px", height: "100%", borderRadius: "8px" }}
-        />
-        <Box
-          position="absolute"
-          top={0}
-          left={0}
-          right={0}
-          bottom={0}
-          bgcolor="rgba(0, 0, 0, 0.6)"
-          borderRadius="8px"
-        />
-        <Stack
-          mt="6"
-          spacing={0}
-          position="absolute"
-          bottom={0}
-          left={0}
-          right={0}
-          p={4}
-        >
+        <img src={movie.thumbnail.regular.large} alt="" style={{ width: "300px", height: "100%", borderRadius: "8px" }} />
+        <Box position="absolute" top={0} left={0} right={0} bottom={0} bgcolor="rgba(0, 0, 0, 0.6)" borderRadius="8px" />
+        <Stack mt="6" spacing={0} position="absolute" bottom={0} left={0} right={0} p={4}>
           <Grid container alignItems="center" spacing={1}>
             <Grid item>
-              <Typography
-                fontSize={10}
-                color="#E0E0E0"
-                aria-label="year of movie"
-              >
+              <Typography fontSize={10} color="#E0E0E0" aria-label="year of movie">
                 {movie.year}
               </Typography>
             </Grid>
@@ -88,19 +48,10 @@ const MovieTrendCard = ({ movie }: MoviecardProps) => {
               />
             </Grid>
             <Grid item>
-              <img
-                src={movie.category === "Movies" ? moviesIcon : tvSeriesIcon}
-                alt=""
-                width={16}
-                height={16}
-              />
+              <img src={movie.category === "Movies" ? moviesIcon : tvSeriesIcon} alt="" width={16} height={16} />
             </Grid>
             <Grid item>
-              <Typography
-                fontSize={10}
-                color="#E0E0E0"
-                aria-label="movie category"
-              >
+              <Typography fontSize={10} color="#E0E0E0" aria-label="movie category">
                 {movie.category}
               </Typography>
             </Grid>
@@ -115,11 +66,7 @@ const MovieTrendCard = ({ movie }: MoviecardProps) => {
               />
             </Grid>
             <Grid item>
-              <Typography
-                fontSize={10}
-                color="#E0E0E0"
-                aria-label="movie rating"
-              >
+              <Typography fontSize={10} color="#E0E0E0" aria-label="movie rating">
                 {movie.rating}
               </Typography>
             </Grid>
@@ -139,27 +86,18 @@ const MovieTrendCard = ({ movie }: MoviecardProps) => {
             padding: "16px",
           }}
         >
-          <IconButton
+          <Box
             sx={{
-              width: "40px",
-              height: "40px",
+              p: "1rem",
               backgroundColor: "black",
-              borderRadius: "50%",
+              borderRadius: "100%",
               cursor: "pointer",
               "&:hover": { opacity: 0.8 },
             }}
-            onClick={() =>
-              movie.isBookmarked
-                ? handleRemoveBookmark(movie.id)
-                : handleAddBookmark(movie.id)
-            }
+            onClick={() => handleToggleBookmark(movie.id)}
           >
-            {movie.isBookmarked ? (
-              <BookmarkIcon fill={"#E0E0E0"} />
-            ) : (
-              <BookmarkEmptyIcon />
-            )}
-          </IconButton>
+            {movie.isBookmarked ? <BookmarkIcon fill={"#E0E0E0"} /> : <BookmarkEmptyIcon />}
+          </Box>
         </Box>
       </CardContent>
     </Card>

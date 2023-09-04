@@ -52,15 +52,9 @@ export function Basic_Row() {
         justifyContent: "space-between",
       }}
     >
-      <div
-        style={{ width: "100px", height: "100px", backgroundColor: "#888" }}
-      />
-      <div
-        style={{ width: "100px", height: "100px", backgroundColor: "#888" }}
-      />
-      <div
-        style={{ width: "100px", height: "100px", backgroundColor: "#888" }}
-      />
+      <div style={{ width: "100px", height: "100px", backgroundColor: "#888" }} />
+      <div style={{ width: "100px", height: "100px", backgroundColor: "#888" }} />
+      <div style={{ width: "100px", height: "100px", backgroundColor: "#888" }} />
     </div>
   );
 }
@@ -75,15 +69,9 @@ export function Basic_Column() {
         justifyContent: "space-between",
       }}
     >
-      <div
-        style={{ width: "100px", height: "100px", backgroundColor: "#888" }}
-      />
-      <div
-        style={{ width: "100px", height: "100px", backgroundColor: "#888" }}
-      />
-      <div
-        style={{ width: "100px", height: "100px", backgroundColor: "#888" }}
-      />
+      <div style={{ width: "100px", height: "100px", backgroundColor: "#888" }} />
+      <div style={{ width: "100px", height: "100px", backgroundColor: "#888" }} />
+      <div style={{ width: "100px", height: "100px", backgroundColor: "#888" }} />
     </div>
   );
 }

@@ -1,5 +1,5 @@
 import { SetStateAction, useContext, useState } from "react";
-import { Typography, InputAdornment, InputBase, Paper, Box} from "@mui/material";
+import { Typography, InputAdornment, InputBase, Paper, Box } from "@mui/material";
 import { MovieContext } from "../../context/movies-context";
 import { MovieDataType } from "../../assets/data";
 import SearchIcon from "../../assets/icons/icon-search.svg";
@@ -15,9 +15,7 @@ const Bookmarks = () => {
 
   const handleSearch = (e: { target: { value: SetStateAction<string> } }) => {
     setSearch(e.target.value);
-    const newList = Movies.filter((movie) =>
-      movie.title.toLowerCase().includes(search.toLowerCase()),
-    );
+    const newList = Movies.filter((movie) => movie.title.toLowerCase().includes(search.toLowerCase()));
     setSearchList(newList);
   };
 
@@ -41,12 +39,7 @@ const Bookmarks = () => {
             onChange={handleSearch}
             startAdornment={
               <InputAdornment position="start">
-                <img
-                  src={SearchIcon}
-                  alt="search icon"
-                  width={20}
-                  height={20}
-                />
+                <img src={SearchIcon} alt="search icon" width={20} height={20} />
               </InputAdornment>
             }
           />

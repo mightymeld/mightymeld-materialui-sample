@@ -1,6 +1,6 @@
 {
   "project_name": "mightymeld-materialui-sample",
-  "include": ["src"],
+  "include": ["src", ".prettierrc.json"],
   "web_server_url": "http://localhost:5173",
   "run": "yarn dev",
   "main_branch": "main",

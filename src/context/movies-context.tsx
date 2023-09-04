@@ -16,22 +16,12 @@ interface MovieAction {
 
 const MovieReducer = (state: MovieState, action: MovieAction): MovieState => {
   switch (action.type) {
-    case "ADD BOOKMARK":
+    case "TOOGLE BOOKMARK":
       return {
         ...state,
         Movies: state.Movies.map((movie) => {
           if (movie.id === action.id) {
-            return { ...movie, isBookmarked: true };
-          }
-          return movie;
-        }),
-      };
-    case "REMOVE BOOKMARK":
-      return {
-        ...state,
-        Movies: state.Movies.map((movie) => {
-          if (movie.id === action.id) {
-            return { ...movie, isBookmarked: false };
+            return { ...movie, isBookmarked: !movie.isBookmarked };
           }
           return movie;
         }),
@@ -58,9 +48,5 @@ export const MovieContext = createContext<{
 export const MovieProvider = ({ children }: MovieContextProps) => {
   const [state, dispatch] = useReducer(MovieReducer, initialMovieState);
 
-  return (
-    <MovieContext.Provider value={{ state, dispatch }}>
-      {children}
-    </MovieContext.Provider>
-  );
+  return <MovieContext.Provider value={{ state, dispatch }}>{children}</MovieContext.Provider>;
 };

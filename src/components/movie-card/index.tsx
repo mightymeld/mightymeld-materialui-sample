@@ -1,12 +1,5 @@
 import { useContext } from "react";
-import {
-  Card,
-  CardContent,
-  Typography,
-  Box,
-  IconButton,
-  Grid,
-} from "@mui/material";
+import { Card, CardContent, Typography, Box, Grid } from "@mui/material";
 import { MovieDataType } from "../../assets/data";
 import { MovieContext } from "../../context/movies-context";
 import BookmarkIcon from "../icons/bookmark-icon";
@@ -19,36 +12,22 @@ interface MovieCardProps {
 }
 const MovieCard = ({ movie }: MovieCardProps) => {
   const { dispatch } = useContext(MovieContext);
-  const handleAddBookmark = (id: string) => {
-    dispatch({ type: "ADD BOOKMARK", id });
-  };
 
-  const handleRemoveBookmark = (id: string) => {
-    dispatch({ type: "REMOVE BOOKMARK", id });
+  const handleToggleBookmark = (id: string) => {
+    dispatch({ type: "TOOGLE BOOKMARK", id });
   };
 
   return (
-    <Card
-      variant="outlined"
-      sx={{ bgcolor: "transparent", color: "#E0E0E0", my: 3 }}
-    >
+    <Card variant="outlined" sx={{ bgcolor: "transparent", color: "#E0E0E0", my: 3, border: "none" }}>
       <CardContent sx={{ p: 0, position: "relative" }}>
         <Grid container spacing={1}>
           <Grid item>
-            <img
-              src={movie.thumbnail.regular.large}
-              alt=""
-              style={{ width: "400px", height: "180px", borderRadius: "sm" }}
-            />
+            <img src={movie.thumbnail.regular.large} alt="" style={{ width: "400px", height: "180px", borderRadius: "8px" }} />
           </Grid>
           <Grid item xs={8}>
             <Grid container spacing={1} alignItems="center">
               <Grid item>
-                <Typography
-                  fontSize={10}
-                  color="#E0E0E0"
-                  aria-label="year of movie"
-                >
+                <Typography fontSize={10} color="#E0E0E0" aria-label="year of movie">
                   {movie.year}
                 </Typography>
               </Grid>
@@ -63,19 +42,10 @@ const MovieCard = ({ movie }: MovieCardProps) => {
                 />
               </Grid>
               <Grid item>
-                <img
-                  src={movie.category === "Movies" ? moviesIcon : tvSeriesIcon}
-                  alt=""
-                  width={16}
-                  height={16}
-                />
+                <img src={movie.category === "Movies" ? moviesIcon : tvSeriesIcon} alt="" width={16} height={16} />
               </Grid>
               <Grid item>
-                <Typography
-                  fontSize={10}
-                  color="#E0E0E0"
-                  aria-label="movie category"
-                >
+                <Typography fontSize={10} color="#E0E0E0" aria-label="movie category">
                   {movie.category}
                 </Typography>
               </Grid>
@@ -90,11 +60,7 @@ const MovieCard = ({ movie }: MovieCardProps) => {
                 />
               </Grid>
               <Grid item>
-                <Typography
-                  fontSize={10}
-                  color="#E0E0E0"
-                  aria-label="movie rating"
-                >
+                <Typography fontSize={10} color="#E0E0E0" aria-label="movie rating">
                   {movie.rating}
                 </Typography>
               </Grid>
@@ -112,27 +78,18 @@ const MovieCard = ({ movie }: MovieCardProps) => {
                 p: "1rem",
               }}
             >
-              <IconButton
+              <Box
                 sx={{
-                  width: "40px",
-                  height: "40px",
+                  p: "1rem",
                   backgroundColor: "black",
-                  borderRadius: "50%",
+                  borderRadius: "100%",
                   cursor: "pointer",
                   "&:hover": { opacity: 0.8 },
                 }}
-                onClick={() =>
-                  movie.isBookmarked
-                    ? handleRemoveBookmark(movie.id)
-                    : handleAddBookmark(movie.id)
-                }
+                onClick={() => handleToggleBookmark(movie.id)}
               >
-                {movie.isBookmarked ? (
-                  <BookmarkIcon fill={"#E0E0E0"} />
-                ) : (
-                  <BookmarkEmptyIcon />
-                )}
-              </IconButton>
+                {movie.isBookmarked ? <BookmarkIcon fill={"#E0E0E0"} /> : <BookmarkEmptyIcon />}
+              </Box>
             </Box>
           </Grid>
         </Grid>

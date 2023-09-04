@@ -1,6 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
-import { Box, Hidden } from "@mui/material";
-import avatarImage from "../../assets/image-avatar.png";
+import { Box, Hidden, Typography } from "@mui/material";
+import avatarImage from "../../assets/profile-avatar.jpg";
 import homeIcon from "../../assets/icons/icon-nav-home.svg";
 import movieIcon from "../../assets/icons/icon-nav-movies.svg";
 import tvSeriesIcon from "../../assets/icons/icon-nav-tv-series.svg";
@@ -8,22 +8,22 @@ import bookmarkIcon from "../../assets/icons/icon-nav-bookmark.svg";
 
 const navLinks = [
   {
-    name: "home",
+    name: "Home",
     icon: homeIcon,
     link: "/",
   },
   {
-    name: "movies",
+    name: "Movies",
     icon: movieIcon,
     link: "/movies",
   },
   {
-    name: "tv-series",
+    name: "TV Series",
     icon: tvSeriesIcon,
     link: "/tv-series",
   },
   {
-    name: "bookmarks",
+    name: "Bookmarks",
     icon: bookmarkIcon,
     link: "/bookmarks",
   },
@@ -36,7 +36,7 @@ const Sidebar = () => {
     <Box
       sx={{
         backgroundColor: "#161d2f",
-        padding: 1,
+        padding: 2,
         borderRadius: 2,
         display: "flex",
         flexDirection: {
@@ -45,6 +45,10 @@ const Sidebar = () => {
         },
         alignItems: "center",
         justifyContent: "space-between",
+        width: {
+          sm: "100%",
+          lg: 200,
+        },
       }}
     >
       <Box
@@ -54,12 +58,20 @@ const Sidebar = () => {
             xs: "row",
             lg: "column",
           },
-          gap: 10,
-          justifyContent: "center",
-          alignItems: "center",
+          gap: 5,
+          alignItems: {
+            xs: "center",
+            lg: "start",
+          },
+          width: "100%",
         }}
       >
-        <img src="/logo.svg" alt="logo" />
+        <Hidden smDown>
+          <Typography variant="h5" component="h1" my={2} fontWeight={400} fontSize={18}>
+            MovieApp
+          </Typography>
+        </Hidden>
+
         <Box
           sx={{
             py: {
@@ -75,18 +87,21 @@ const Sidebar = () => {
           }}
         >
           {navLinks.map((item) => (
-            <Link key={item.name} to={item.link}>
+            <Link key={item.name} to={item.link} style={{ textDecoration: "none" }}>
               <Box
                 sx={{
-                  width: "24px",
-                  height: "24px",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 2,
+                  color: "white",
+                  textDecoration: "none",
                 }}
               >
                 <img
                   src={item.icon}
                   alt={item.name}
                   style={{
-                    width: "24px",
+                    width: "18px",
                     filter: `${
                       pathname === item.link
                         ? "invert(58%) sepia(14%) saturate(3166%) hue-rotate(215deg) brightness(91%) contrast(87%)"
@@ -94,13 +109,16 @@ const Sidebar = () => {
                     }`,
                   }}
                 />
+                <Hidden mdDown>
+                  <Typography>{item.name}</Typography>
+                </Hidden>
               </Box>
             </Link>
           ))}
         </Box>
       </Box>
       <Hidden smDown>
-        <img src={avatarImage} alt="avatar" style={{ borderRadius: "50%" }} />
+        <img src={avatarImage} alt="avatar" style={{ borderRadius: "50%", width: 90, height: 90 }} />
       </Hidden>
     </Box>
   );
