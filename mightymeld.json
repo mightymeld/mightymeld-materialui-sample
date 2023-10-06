@@ -1,9 +1,7 @@
 {
-  "project_name": "mightymeld-materialui-sample",
+  "run": "npm run dev",
   "include": ["src", ".prettierrc.json"],
   "web_server_url": "http://localhost:5173",
-  "run": "npm run dev",
-  "main_branch": "main",
   "prefab_dir": "src/prefabs",
   "run_prettier": true
 }
