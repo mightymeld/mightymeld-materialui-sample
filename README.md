@@ -4,7 +4,7 @@ Mightymeld MaterialUI sample Project
 
 ## Editing the app with MightyMeld
 
-1. Run `yarn` or `npm install` to install depenendencies
+1. Run `yarn` or `npm install` to install depenendencies. If you're using yarn, you can change the run command in the mightymeld.json file to `yarn dev`.
 
 2. Copy `.env.template` to `.env` and add your MightyMeld secret and instance ID. If you don’t have an instance ID, [sign up for MightyMeld](https://www.mightymeld.com) or join the waitlist and you will receive one.
 
