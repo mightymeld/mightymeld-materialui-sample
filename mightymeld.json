@@ -2,7 +2,7 @@
   "project_name": "mightymeld-materialui-sample",
   "include": ["src", ".prettierrc.json"],
   "web_server_url": "http://localhost:5173",
-  "run": "yarn dev",
+  "run": "npm run dev",
   "main_branch": "main",
   "prefab_dir": "src/prefabs",
   "run_prettier": true
